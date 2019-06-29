@@ -16,3 +16,11 @@ fs.readdir(srcPath, (err, files) => {
 var reg = /\<link\s+href=\"[^\"\>]*\"\>/
 var regTest = reg.test('<link  href="/statics/ffsm/public/wap.min-v=0817.css">')
 console.log('regTest:', regTest)
+
+fs.open(path.resolve(__dirname, './test.html'), 'r', (err, fd) => {
+  console.log('fd:', fd)
+
+  fs.close(fd, err => {
+    console.log('fd close error:', err)
+  })
+})
